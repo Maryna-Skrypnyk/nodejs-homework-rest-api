@@ -9,7 +9,7 @@ const getContactById = async (contactId) => {
 };
 
 const removeContact = async (contactId) => {
-  return await Contact.findByIdAndRemove({ _id: contactId });
+  return await Contact.findByIdAndRemove(contactId);
 };
 
 const addContact = async (body) => {
