@@ -23,7 +23,6 @@ const signup = async (req, res, next) => {
       data: {
         id: newUser.id,
         email: newUser.email,
-        password: newUser.password,
         subscription: newUser.subscription,
       },
     });
@@ -57,7 +56,11 @@ const login = async (req, res, next) => {
   });
 };
 
-const logout = async (req, res, next) => {};
+const logout = async (req, res, next) => {
+  const id = req.user._id;
+  await Users.updateToken(id, null);
+  return res.status(HttpCode.NO_CONTENT).json({});
+};
 
 module.exports = {
   signup,
