@@ -79,7 +79,7 @@ const updateStatusContact = async (req, res, next) => {
         status: "success",
         code: 200,
         data: { contact },
-        message: `Status contact with name ${req.body.name} updated!`,
+        message: `Status contact with name ${contact.name} updated!`,
       });
     }
     return res.status(404).json({

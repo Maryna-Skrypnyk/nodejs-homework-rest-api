@@ -17,7 +17,7 @@ const {
 } = require("../../controllers/contacts");
 const guard = require("../../../helpers/guard");
 
-router.get("/", getContacts);
+router.get("/", guard, getContacts);
 
 router.get("/:contactId", guard, validateId, getContact);
 
