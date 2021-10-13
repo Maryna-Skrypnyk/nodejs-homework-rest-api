@@ -1,6 +1,6 @@
 const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
-const { ValidLengthContactName } = require("../../../config/constant");
+const { ValidLengthContactName } = require("../../../config/constants");
 
 const patternPhone =
   "\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}"; // /^\+[0-9]{3}\s\((\d+)\)-\d{3}-\d{2}-\d{2}/ (+380 (**)-***-**-**) or ^[(][\d]{3}[)]\s[\d]{3}[-][\d]{4} or +?d{1,4}?[-.s]?(?d{1,3}?)?[-.s]?d{1,4}[-.s]?d{1,4}[-.s]?d{1,9}

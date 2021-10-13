@@ -14,7 +14,7 @@ const {
   updateContact,
   updateStatusContact,
   deleteContact,
-} = require("../../controllers/controllersContacts");
+} = require("../../controllers/contacts");
 
 router.get("/", getContacts);
 
