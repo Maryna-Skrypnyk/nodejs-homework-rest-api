@@ -19,11 +19,19 @@ const HttpCode = {
   FORBIDDEN: 403,
   NOT_FOUND: 404,
   CONFLICT: 409,
+  TOO_MANY_REQUESTS: 429,
   INTERNAL_SERVER_ERROR: 500,
+};
+
+const Limit = {
+  JSON: 10000,
+  WINDOW_MS: 15 * 60 * 1000,
+  MAX_LIMITER: 3,
 };
 
 module.exports = {
   ValidLengthContactName,
   Subscription,
   HttpCode,
+  Limit,
 };

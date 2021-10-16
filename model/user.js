@@ -23,7 +23,6 @@ const userSchema = new Schema(
       default: Subscription.STARTER,
     },
     token: { type: String, default: null },
-    // owner: { type: SchemaTypes.ObjectId, ref: "user" },
   },
 
   {
