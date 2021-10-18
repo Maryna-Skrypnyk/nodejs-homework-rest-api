@@ -1,5 +1,6 @@
-const { Schema, model } = require("mongoose");
-const { ValidLengthContactName } = require("../config/constant");
+const { Schema, model, SchemaTypes } = require("mongoose");
+const { ValidLengthContactName } = require("../config/constants");
+const mongoosePaginate = require("mongoose-paginate-v2");
 
 const contactSchema = new Schema(
   {
@@ -26,7 +27,10 @@ const contactSchema = new Schema(
       unique: true,
     },
     favorite: { type: Boolean, default: false },
-    //   createAt: { type: Date, default: Date.now() },
+    owner: {
+      type: SchemaTypes.ObjectId,
+      ref: "user",
+    },
   },
   {
     versionKey: false,
@@ -45,6 +49,8 @@ const contactSchema = new Schema(
 contactSchema.virtual("fullname").get(function () {
   return `${this.name} ${this.surname}`;
 });
+
+contactSchema.plugin(mongoosePaginate);
 
 const Contact = model("Contact", contactSchema);
 
