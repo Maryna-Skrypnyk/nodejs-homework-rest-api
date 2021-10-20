@@ -1,7 +1,7 @@
 const multer = require("multer");
 require("dotenv").config();
 const { CustomError } = require("./customError");
-const { HttpCode } = require("../config/constants");
+const { HttpCode, Limit } = require("../config/constants");
 const UPLOAD_DIR = process.env.UPLOAD_DIR;
 
 const storage = multer.diskStorage({
@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({
   storage: storage,
-  limits: { fileSize: 2000000 },
+  limits: { fileSize: Limit.FILE_SIZE },
   fileFilter: (req, file, cb) => {
     if (file.mimetype.includes("image")) {
       return cb(null, true);

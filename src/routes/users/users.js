@@ -38,6 +38,6 @@ router.post("/logout", guard, logout);
 
 router.get("/current", guard, current);
 
-router.patch("/avatar", guard, upload.single("avatar"), uploadAvatar);
+router.patch("/avatar", guard, upload.single("avatarURL"), uploadAvatar);
 
 module.exports = router;

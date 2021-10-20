@@ -1,5 +1,7 @@
 node_modules
 package-lock.json
-uploads
-users-avatars
+tmp
+public
+# uploads
+# users-avatars
 .env
