@@ -5,3 +5,4 @@ public
 # uploads
 # users-avatars
 .env
+coverage
