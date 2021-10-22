@@ -15,7 +15,6 @@ const newUserForRouteContact = {
 const newUserForRouteUser = {
   email: "oleg@gmail.com",
   password: "87654321",
-  subscription: "pro",
 };
 
 module.exports = {

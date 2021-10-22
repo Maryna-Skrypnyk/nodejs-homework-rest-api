@@ -152,7 +152,6 @@ describe("Test route contacts", () => {
     });
 
     it("should return status 404 if contact not found", async () => {
-      //   const contact = await Contact.create({ ...newContact, owner: user._id });
       const response = await request(app)
         .patch(`/api/contacts/${user._id}`)
         .set("Authorization", `Bearer ${token}`)
@@ -179,7 +178,6 @@ describe("Test route contacts", () => {
       expect(response.status).toEqual(200);
       expect(response.body).toBeDefined();
       expect(response.body.data.contact.favorite).toBe(true);
-      console.log(response.body);
     });
 
     it("should return status 404 if contact not found", async () => {
