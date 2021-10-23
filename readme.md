@@ -23,17 +23,17 @@
 
 ### Routes Users
 
-| Method | <http://localhost:{PORT}/api> | Description                       | Properties                     |
-| ------ | ----------------------------- | --------------------------------- | ------------------------------ |
-| POST   | /users/signup                 | create a new user                 | Request body                   |
-| POST   | /users/login                  | user login                        | Request body                   |
-| POST   | /users/logout                 | user logout                       | Authorization                  |
-| GET    | /users/current                | get info about the current user   | Authorization                  |
-| PATCH  | /users                        | update user subscription          | Authorization, Body(json)      |
-| GET    | /users/starter                | access by 'starter' subscription  | Authorization                  |
-| GET    | /users/business               | access by 'business' subscription | Authorization                  |
-| GET    | /users/pro                    | access by 'pro' subscription      | Authorization                  |
-| PATCH  | /users/avatar                 | upload user avatar                | Authorization, Body(form-data) |
+| Method | <http://localhost:{PORT}/api> | Description                     | Properties                     |
+| ------ | ----------------------------- | ------------------------------- | ------------------------------ |
+| POST   | /users/signup                 | create a new user               | Request body                   |
+| POST   | /users/login                  | user login                      | Request body                   |
+| POST   | /users/logout                 | user logout                     | Authorization                  |
+| GET    | /users/current                | get info about the current user | Authorization                  |
+| PATCH  | /users                        | update user subscription        | Authorization, Body(json)      |
+| GET    | /users/starter                | access 'starter' subscription   | Authorization                  |
+| GET    | /users/business               | access 'business' subscription  | Authorization                  |
+| GET    | /users/pro                    | access 'pro' subscription       | Authorization                  |
+| PATCH  | /users/avatar                 | upload user avatar              | Authorization, Body(form-data) |
 
 <!-- | Full Routes Contacts                                 | Method | Description                  |
 | ---------------------------------------------------- | ------ | ---------------------------- |
