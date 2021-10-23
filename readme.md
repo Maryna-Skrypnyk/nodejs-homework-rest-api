@@ -11,29 +11,29 @@
 
 ### Routes Contacts
 
-| Method | <http://localhost:{PORT}/api> | Description                  | Properties                    |
-| ------ | ----------------------------- | ---------------------------- | ----------------------------- |
-| GET    | /contacts                     | get all contacts             | Authorization                 |
-| GET    | /contacts/{id}                | get a contact by id          | Authorization                 |
-| POST   | /contacts                     | add a new contact            | Authorization, Body(json)     |
-| PUT    | /contacts/{id}                | update an existing contact   | Authorization, id, Body(json) |
-| PATCH  | /contacts/{id}                | update at least 1 property   | Authorization, id, Body(json) |
-| PATCH  | /contacts/{id}/favorite       | update a property 'favorite' | Authorization, id, Body(json) |
-| DELETE | /contacts/{id}                | remove a contact by id       | Authorization, id             |
+| Method | <http://localhost:{PORT}/api> | Description                  | Properties                  |
+| ------ | ----------------------------- | ---------------------------- | --------------------------- |
+| GET    | /contacts                     | get all contacts             | Authorization               |
+| GET    | /contacts/{id}                | get a contact by id          | Authorization               |
+| POST   | /contacts                     | add a new contact            | Authorization,Body(json)    |
+| PUT    | /contacts/{id}                | update an existing contact   | Authorization,id,Body(json) |
+| PATCH  | /contacts/{id}                | update at least 1 property   | Authorization,id,Body(json) |
+| PATCH  | /contacts/{id}/favorite       | update a property 'favorite' | Authorization,id,Body(json) |
+| DELETE | /contacts/{id}                | remove a contact by id       | Authorization,id            |
 
 ### Routes Users
 
-| Method | <http://localhost:{PORT}/api> | Description                     | Properties                     |
-| ------ | ----------------------------- | ------------------------------- | ------------------------------ |
-| POST   | /users/signup                 | create a new user               | Request body                   |
-| POST   | /users/login                  | user login                      | Request body                   |
-| POST   | /users/logout                 | user logout                     | Authorization                  |
-| GET    | /users/current                | get info about the current user | Authorization                  |
-| PATCH  | /users                        | update user subscription        | Authorization, Body(json)      |
-| GET    | /users/starter                | access 'starter' subscription   | Authorization                  |
-| GET    | /users/business               | access 'business' subscription  | Authorization                  |
-| GET    | /users/pro                    | access 'pro' subscription       | Authorization                  |
-| PATCH  | /users/avatar                 | upload user avatar              | Authorization, Body(form-data) |
+| Method | <http://localhost:{PORT}/api> | Description                    | Properties                    |
+| ------ | ----------------------------- | ------------------------------ | ----------------------------- |
+| POST   | /users/signup                 | create a new user              | Request body                  |
+| POST   | /users/login                  | user login                     | Request body                  |
+| POST   | /users/logout                 | user logout                    | Authorization                 |
+| GET    | /users/current                | get info about current user    | Authorization                 |
+| PATCH  | /users                        | update user subscription       | Authorization,Body(json)      |
+| GET    | /users/starter                | access 'starter' subscription  | Authorization                 |
+| GET    | /users/business               | access 'business' subscription | Authorization                 |
+| GET    | /users/pro                    | access 'pro' subscription      | Authorization                 |
+| PATCH  | /users/avatar                 | upload user avatar             | Authorization,Body(form-data) |
 
 <!-- | Full Routes Contacts                                 | Method | Description                  |
 | ---------------------------------------------------- | ------ | ---------------------------- |
