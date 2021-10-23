@@ -78,7 +78,7 @@ _{_
 _"name":_ _"exampleName",_
 _"surname":_ _"exampleSurname",_
 _"email":_ _"example@gmail.com",_
-_"phone":_ _"examplePassword"_
+_"phone":_ _"examplePhone"_
 _}_
 
 #### Schema Users
