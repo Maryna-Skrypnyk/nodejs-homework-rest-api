@@ -87,6 +87,8 @@ _}_
     email*: String,
     password*: String,
     subscription: String,
+    avatarURL: String,
+    token: String,
     id: String
 }
 
