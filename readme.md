@@ -71,16 +71,15 @@
     owner: Object,
     id: String
 }
+```
 
 _example:_
 _{_
-    _"name":_ _"exampleName",_
-    _"surname":_ _"exampleSurname",_
-    _"email":_ _"example@gmail.com",_
-    _"phone":_ _"examplePassword"_
+_"name":_ _"exampleName",_
+_"surname":_ _"exampleSurname",_
+_"email":_ _"example@gmail.com",_
+_"phone":_ _"examplePassword"_
 _}_
-
-```
 
 #### Schema Users
 
@@ -93,11 +92,10 @@ _}_
     token: String,
     id: String
 }
-
-  _example:_
-_{_
-    _"email":_ _"example@gmail.com",_
-    _"password":_ _"examplePassword"_
-_}_
-
 ```
+
+_example:_
+_{_
+_"email":_ _"example@gmail.com",_
+_"password":_ _"examplePassword"_
+_}_
