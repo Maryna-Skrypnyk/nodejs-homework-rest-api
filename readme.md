@@ -25,17 +25,19 @@
 
 ### Routes Users
 
-| Method | <http://localhost:{PORT}/api> | Description                    | Properties                    |
-| ------ | ----------------------------- | ------------------------------ | ----------------------------- |
-| POST   | /users/signup                 | create a new user              | Request body                  |
-| POST   | /users/login                  | user login                     | Request body                  |
-| POST   | /users/logout                 | user logout                    | Authorization                 |
-| GET    | /users/current                | get info about current user    | Authorization                 |
-| PATCH  | /users                        | update user subscription       | Authorization,Body(json)      |
-| GET    | /users/starter                | access 'starter' subscription  | Authorization                 |
-| GET    | /users/business               | access 'business' subscription | Authorization                 |
-| GET    | /users/pro                    | access 'pro' subscription      | Authorization                 |
-| PATCH  | /users/avatar                 | upload user avatar             | Authorization,Body(form-data) |
+| Method | <http://localhost:{PORT}/api> | Description                       | Properties                    |
+| ------ | ----------------------------- | --------------------------------- | ----------------------------- |
+| POST   | /users/signup                 | create a new user                 | Request body                  |
+| POST   | /users/login                  | user login                        | Request body                  |
+| POST   | /users/logout                 | user logout                       | Authorization                 |
+| GET    | /users/current                | get info about current user       | Authorization                 |
+| PATCH  | /users                        | update user subscription          | Authorization,Body(json)      |
+| GET    | /users/starter                | access 'starter' subscription     | Authorization                 |
+| GET    | /users/business               | access 'business' subscription    | Authorization                 |
+| GET    | /users/pro                    | access 'pro' subscription         | Authorization                 |
+| PATCH  | /users/avatar                 | upload user avatar                | Authorization,Body(form-data) |
+| GET    | /users/verify/{verifyToken}   | get token for verify user email   | query parameter               |
+| POST   | /users/verify                 | repeat send for verify user email | Body(json)                    |
 
 <!-- | Full Routes Contacts                                 | Method | Description                  |
 | ---------------------------------------------------- | ------ | ---------------------------- |
@@ -47,17 +49,19 @@
 | <http://localhost:{PORT}/api/contacts/{id}/favorite> | PATCH  | update a property 'favorite' |
 | <http://localhost:{PORT}/api/contacts/{id}>          | DELETE | remove a contact by id       |
 
-| Full Routes Users                            | Method | Description                       |
-| -------------------------------------------- | ------ | --------------------------------- |
-| <http://localhost:{PORT}/api/users/signup>   | POST   | user registration                 |
-| <http://localhost:{PORT}/api/users/login>    | POST   | user login                        |
-| <http://localhost:{PORT}/api/users/logout>   | POST   | user logout                       |
-| <http://localhost:{PORT}/api/users/current>  | GET    | get user data by token            |
-| <http://localhost:{PORT}/api/users>          | PATCH  | update user subscription          |
-| <http://localhost:{PORT}/api/users/starter>  | GET    | access by 'starter' subscription  |
-| <http://localhost:{PORT}/api/users/business> | GET    | access by 'business' subscription |
-| <http://localhost:{PORT}/api/users/pro>      | GET    | access by 'pro' subscription      |
-| <http://localhost:{PORT}/api/users/avatar>   | PATCH  | upload user avatar                | -->
+| Full Routes Users                                        | Method | Description                       |
+| -------------------------------------------------------- | ------ | --------------------------------- |
+| <http://localhost:{PORT}/api/users/signup>               | POST   | user registration                 |
+| <http://localhost:{PORT}/api/users/login>                | POST   | user login                        |
+| <http://localhost:{PORT}/api/users/logout>               | POST   | user logout                       |
+| <http://localhost:{PORT}/api/users/current>              | GET    | get user data by token            |
+| <http://localhost:{PORT}/api/users>                      | PATCH  | update user subscription          |
+| <http://localhost:{PORT}/api/users/starter>              | GET    | access by 'starter' subscription  |
+| <http://localhost:{PORT}/api/users/business>             | GET    | access by 'business' subscription |
+| <http://localhost:{PORT}/api/users/pro>                  | GET    | access by 'pro' subscription      |
+| <http://localhost:{PORT}/api/users/avatar>               | PATCH  | upload user avatar                |
+| <http://localhost:{PORT}/api/users/verify/{verifyToken}> | GET    | get token for verify user email   |
+| <http://localhost:{PORT}/api/users/verify>               | POST   | repeat send for verify user email | -->
 
 ### Schemas
 
@@ -89,10 +93,13 @@ _}_
 {
     email*: String,
     password*: String,
+    name: String,
     subscription: String,
     avatarURL: String,
     token: String,
-    id: String
+    id: String,
+    verify: Boolean,
+    verifyToken*: String
 }
 ```
 
