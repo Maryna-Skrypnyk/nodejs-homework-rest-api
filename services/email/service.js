@@ -5,7 +5,7 @@ class EmailService {
     this.sender = sender;
     switch (env) {
       case "development":
-        this.link = "https://95ce-185-237-75-46.ngrok.io";
+        this.link = "https://e9d8-185-237-75-46.ngrok.io";
         break;
 
       case "production":

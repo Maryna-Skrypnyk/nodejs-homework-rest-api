@@ -203,36 +203,51 @@ const verifyUser = async (req, res) => {
       status: "success",
       code: HttpCode.OK,
       data: {
-        message: "Success",
+        message: "Verification successful",
       },
     });
   }
-  throw new CustomError(HttpCode.BAD_REQUEST, "Invalid token");
+  throw new CustomError(
+    HttpCode.BAD_REQUEST,
+    "Verification has already been passed"
+  );
 };
 
-const repeatEmailForVerifyUser = async (req, res, next) => {
+const repeatEmailForVerifyUser = async (req, res, _next) => {
   const { email } = req.body;
   const user = await Users.findByEmail(email);
-  if (user) {
+  if (!user) {
+    return res.status(HttpCode.BAD_REQUEST).json({
+      status: "error",
+      code: HttpCode.BAD_REQUEST,
+      message: "missing required field email",
+    });
+  }
+
+  if (user?.verify) {
+    return new CustomError(
+      HttpCode.BAD_REQUEST,
+      "Verification has already been passed"
+    );
+  }
+
+  if (user && !user.verify) {
     const { email, name, verifyToken } = user;
     const emailService = new EmailService(
       process.env.NODE_ENV,
       new CreateSenderSendGrid()
       // new CreateSenderNodemailer()
     );
-    const statusEmail = await emailService.sendVerifyEmail(
-      email,
-      name,
-      verifyToken
-    );
+    await emailService.sendVerifyEmail(email, name, verifyToken);
+
+    return res.status(HttpCode.OK).json({
+      status: "success",
+      code: HttpCode.OK,
+      data: {
+        message: "Verification email sent",
+      },
+    });
   }
-  return res.status(HttpCode.OK).json({
-    status: "success",
-    code: HttpCode.OK,
-    data: {
-      message: "Success",
-    },
-  });
 };
 
 module.exports = {

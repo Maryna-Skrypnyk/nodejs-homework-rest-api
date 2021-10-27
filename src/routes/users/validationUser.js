@@ -29,6 +29,10 @@ const schemaSubscriptionUser = Joi.object({
     .required(),
 });
 
+const schemaRepeatEmailForVerifyUser = Joi.object({
+  email: Joi.string().email().required(),
+});
+
 const validate = async (schema, obj, res, next) => {
   try {
     await schema.validateAsync(obj);
@@ -52,4 +56,8 @@ module.exports.validateUserLogin = async (req, res, next) => {
 
 module.exports.validateSubscriptionUser = async (req, res, next) => {
   return await validate(schemaSubscriptionUser, req.body, res, next);
+};
+
+module.exports.validateRepeatEmailForVerifyUser = async (req, res, next) => {
+  return await validate(schemaRepeatEmailForVerifyUser, req.body, res, next);
 };
