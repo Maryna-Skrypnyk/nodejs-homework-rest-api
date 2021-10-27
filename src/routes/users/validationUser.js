@@ -1,10 +1,16 @@
 const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
 const { Subscription, HttpCode } = require("../../../config/constants");
+const { ValidLengthContactName } = require("../../../config/constants");
 
 const patternPassword = "^[a-zA-Z0-9]{3,30}$";
 
 const schemaUserSignup = Joi.object({
+  name: Joi.string()
+    .alphanum()
+    .min(ValidLengthContactName.MIN_LENGTH_NAME)
+    .max(ValidLengthContactName.MAX_LENGTH_NAME)
+    .optional(),
   email: Joi.string().email().required(),
   password: Joi.string().min(8).pattern(new RegExp(patternPassword)).required(),
   subscription: Joi.string()
