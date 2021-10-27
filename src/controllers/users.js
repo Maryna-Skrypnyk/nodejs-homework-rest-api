@@ -207,10 +207,7 @@ const verifyUser = async (req, res) => {
       },
     });
   }
-  throw new CustomError(
-    HttpCode.BAD_REQUEST,
-    "Verification has already been passed"
-  );
+  throw new CustomError(HttpCode.NOT_FOUND, "User not found");
 };
 
 const repeatEmailForVerifyUser = async (req, res, _next) => {
